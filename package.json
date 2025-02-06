@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "push:mac": "./pushScript.sh",
+    "push:win": "pushScript.bat"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.4",
