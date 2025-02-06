@@ -1,4 +1,4 @@
-#EduSearch
+# EduSearch
 
 ## React + TypeScript + Vite
 
