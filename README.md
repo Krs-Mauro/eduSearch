@@ -8,7 +8,7 @@ This application is SPA made with React 19, Tailwind 4, Vite and TS, it is a sea
 
 Navigate to:
 
-**https://edusearch-u1axm.kinsta.app/**
+**https://edusearch-6c343.web.app/**
 
 or clone the repo and run the following commands:
 
