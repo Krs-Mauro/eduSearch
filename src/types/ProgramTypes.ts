@@ -15,5 +15,6 @@ export interface ProgramItem extends Program {
 
 export interface PaginationProps {
   itemList: ProgramItem[][]
+  page: number
   setPage: Dispatch<SetStateAction<number>>
 }

@@ -23,7 +23,7 @@ function App() {
               <li key={item.id}>{item['Program Name']}</li>
             ))}
           </ul>
-          <Pagination itemList={newData} setPage={setPage} />
+          <Pagination itemList={newData} page={page} setPage={setPage} />
         </>
       )}
     </div>

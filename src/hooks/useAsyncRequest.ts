@@ -40,6 +40,7 @@ const useAsyncRequest = (url: string) => {
       setLoading(false)
     }
   }
+
   useEffect(() => {
     callData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
