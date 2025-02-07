@@ -1,8 +1,10 @@
 # EduSearch
 
-## React + TypeScript + Vite
+## React + TypeScript + Tailwind + Vite
 
 This application is SPA made with React 19, Tailwind 4, Vite and TS, it is a search engine for educational resources.
+
+It consumes and displays information from [jsonbin.io](https://open-education-api.fly.dev/docs)
 
 ## Getting Started
 
