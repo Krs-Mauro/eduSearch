@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import splitArray from '../utils/splitArrays'
+import { type ProgramItem } from '../types/ProgramTypes'
 
 const useAsyncRequest = (url: string) => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState<ProgramItem[][]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>('')
 
@@ -25,7 +27,8 @@ const useAsyncRequest = (url: string) => {
       }
 
       const data = await response.json()
-      setData(data.record)
+      const dividedData = splitArray(data.record as ProgramItem[], 15)
+      setData(dividedData)
     } catch (error: unknown) {
       console.error('Error fetching data:', error)
       if (error instanceof Error) {
@@ -37,7 +40,6 @@ const useAsyncRequest = (url: string) => {
       setLoading(false)
     }
   }
-
   useEffect(() => {
     callData()
     // eslint-disable-next-line react-hooks/exhaustive-deps

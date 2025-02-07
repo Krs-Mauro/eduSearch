@@ -1,3 +1,5 @@
+import { type Dispatch, type SetStateAction } from 'react'
+
 export interface Program {
   'Annual Tuition': string
   'Degree Type': string
@@ -9,4 +11,9 @@ export interface Program {
 
 export interface ProgramItem extends Program {
   id: string
+}
+
+export interface PaginationProps {
+  itemList: ProgramItem[][]
+  setPage: Dispatch<SetStateAction<number>>
 }
