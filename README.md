@@ -6,6 +6,8 @@ This application is SPA made with React 19, Tailwind 4, Vite and TS, it is a sea
 
 It consumes and displays information from [jsonbin.io](https://open-education-api.fly.dev/docs)
 
+This application is **fully fucntional** for **pagination, search, sorting, filtering** and displaying information.
+
 ## Getting Started
 
 Navigate to:
