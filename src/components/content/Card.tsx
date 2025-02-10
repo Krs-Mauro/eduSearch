@@ -4,10 +4,18 @@ const Card = ({ card }: { card: ProgramItem }) => {
   return (
     <li className="flex w-full flex-col justify-between items-center h-30">
       <div className="flex justify-between items-center w-full h-full text-gray-700">
-        <div className="flex flex-col max-w-3xl">
-          <p className="font-bold text-xl">{card['Program Name']}</p>
-          <p className="font-semibold">{card.School}</p>
+        <div className="flex gap-4 items-center">
+          <img
+            src={`/${card.School}${card.School === 'Houston Community College' ? '.jpg' : '.png'}`}
+            alt={`${card.School} logo`}
+            className="w-16 h-16 object-contain"
+          />
+          <div className="flex flex-col max-w-3xl">
+            <p className="font-bold text-xl">{card['Program Name']}</p>
+            <p className="font-semibold">{card.School}</p>
+          </div>
         </div>
+
         <div className="flex gap-12">
           <div className="">
             <p className="font-medium text-sm">Degree Type</p>
