@@ -13,7 +13,7 @@ const useAsyncRequest = (url: string) => {
           method: 'GET',
           mode: 'cors',
           headers: {
-            'X-Access-Key': '$2a$10$fUmlePd70Q1i/6XsxKjUzOfBNi8kiyb.SWOHZqB0mMdofau4Z3Af.',
+            'X-Access-Key': import.meta.env.VITE_REQUEST_KEY,
             'Content-Type': 'application/json',
             Accept: 'application/json',
           },
