@@ -11,7 +11,7 @@ const useAsyncRequest = (url: string) => {
     try {
       setLoading(true)
       setError(null)
-
+      console.log('fetching data...')
       const response = await fetch(url, {
         method: 'GET',
         mode: 'cors',
@@ -44,7 +44,7 @@ const useAsyncRequest = (url: string) => {
   useEffect(() => {
     callData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [url])
+  }, [])
 
   return { data, loading, error }
 }

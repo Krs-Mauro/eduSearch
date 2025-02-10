@@ -18,3 +18,17 @@ export interface PaginationProps {
   page: number
   setPage: Dispatch<SetStateAction<number>>
 }
+
+export interface AppContextProps {
+  filter: string | null
+  setFilter: Dispatch<SetStateAction<string | null>>
+  search: string | null
+  setSearch: Dispatch<SetStateAction<string | null>>
+  sort: string | null
+  setSort: Dispatch<SetStateAction<string | null>>
+  dataWithId: ProgramItem[][]
+  page: number
+  setPage: Dispatch<SetStateAction<number>>
+  loading: boolean
+  error: string | null
+}

@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
-import { type PaginationProps } from './types/ProgramTypes'
+import { useAppContext } from '../hooks/useAppContext'
 
-const Pagination = ({ itemList, page, setPage }: PaginationProps) => {
+const Pagination = () => {
+  const { page, setPage, dataWithId } = useAppContext()
   const [isPrevActive, setIsPrevActive] = useState(true)
   const [isNextActive, setIsNextActive] = useState(true)
 
-  const buttonArray = itemList.length
-    ? Array.from({ length: itemList.length - 1 }, (_, index) => ({ content: index + 1 }))
+  const buttonArray = dataWithId.length
+    ? Array.from({ length: dataWithId.length - 1 }, (_, index) => ({ content: index + 1 }))
     : []
 
   const handlePrevious = () => {
@@ -17,7 +18,7 @@ const Pagination = ({ itemList, page, setPage }: PaginationProps) => {
     setPage((prevPage) => prevPage - 1)
   }
   const handleNext = () => {
-    if (page === itemList.length - 1) {
+    if (page === dataWithId.length - 1) {
       setIsNextActive(false)
       return
     }
@@ -25,7 +26,7 @@ const Pagination = ({ itemList, page, setPage }: PaginationProps) => {
   }
 
   useEffect(() => {
-    if (page === itemList.length - 1) {
+    if (page === dataWithId.length - 1) {
       setIsNextActive(false)
     } else {
       setIsNextActive(true)
@@ -35,7 +36,7 @@ const Pagination = ({ itemList, page, setPage }: PaginationProps) => {
     } else {
       setIsPrevActive(true)
     }
-  }, [page, itemList])
+  }, [page, dataWithId])
 
   return (
     <div>

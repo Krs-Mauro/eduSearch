@@ -1,32 +1,27 @@
-import { useState } from 'react'
-import useAsyncRequest from './hooks/useAsyncRequest'
 import { type ProgramItem } from './types/ProgramTypes'
-import { useMemo2dArraywithId } from './hooks/useMemoizeData'
-import Pagination from './Pagination'
+import Pagination from './components/Pagination'
+import Header from './components/header/Header'
+import { useAppContext } from './hooks/useAppContext'
 
 function App() {
-  const [page, setPage] = useState(1)
-  const { data, loading, error } = useAsyncRequest(
-    'https://api.jsonbin.io/v3/b/67a4dda7e41b4d34e485322d'
-  )
-
-  const newData = useMemo2dArraywithId(data)
+  const { dataWithId, loading, error, page } = useAppContext()
 
   return (
-    <div>
+    <>
+      <Header />
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-      {newData.length != null && newData[page] != null && !loading && !error && (
+      {dataWithId.length != null && dataWithId[page] != null && !loading && !error && (
         <>
           <ul>
-            {newData[page].map((item: ProgramItem) => (
+            {dataWithId[page].map((item: ProgramItem) => (
               <li key={item.id}>{item['Program Name']}</li>
             ))}
           </ul>
-          <Pagination itemList={newData} page={page} setPage={setPage} />
+          <Pagination />
         </>
       )}
-    </div>
+    </>
   )
 }
 
