@@ -26,9 +26,15 @@ export interface AppContextProps {
   setSearch: Dispatch<SetStateAction<string | null>>
   sort: string | null
   setSort: Dispatch<SetStateAction<string | null>>
-  dataWithId: ProgramItem[][]
   page: number
   setPage: Dispatch<SetStateAction<number>>
+  itemsPerPage: number
+  setItemsPerPage: Dispatch<SetStateAction<number>>
+  dataWithId: ProgramItem[][]
+  data: Program[][]
+  setData: Dispatch<SetStateAction<Program[][]>>
   loading: boolean
+  setLoading: Dispatch<SetStateAction<boolean>>
   error: string | null
+  setError: Dispatch<SetStateAction<string | null>>
 }
