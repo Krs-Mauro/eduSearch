@@ -31,8 +31,8 @@ export interface AppContextProps {
   itemsPerPage: number
   setItemsPerPage: Dispatch<SetStateAction<number>>
   dataWithId: ProgramItem[][]
-  data: Program[][]
-  setData: Dispatch<SetStateAction<Program[][]>>
+  fullData: Program[]
+  setFullData: Dispatch<SetStateAction<Program[]>>
   loading: boolean
   setLoading: Dispatch<SetStateAction<boolean>>
   error: string | null

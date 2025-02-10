@@ -1,7 +1,8 @@
-import { useState, type ChangeEvent } from 'react'
+import { type ChangeEvent } from 'react'
+import { useAppContext } from '../../hooks/useAppContext'
 
 const SortMenu = () => {
-  const [selectedSort, setSelectedSort] = useState('relevancy')
+  const { setSort } = useAppContext()
 
   const sortOptions = [
     { value: 'relevancy', label: 'Relevancy' },
@@ -14,7 +15,7 @@ const SortMenu = () => {
   ]
 
   const handleSortChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedSort(e.target.value)
+    setSort(e.target.value)
   }
 
   return (
@@ -24,9 +25,9 @@ const SortMenu = () => {
       </label>
       <select
         id="sort-select"
-        value={selectedSort}
+        defaultValue="relevancy"
         onChange={handleSortChange}
-        className="border border-gray-300 rounded-md px-4 py-2 bg-white focus:outline-none focus:border-amber-500  focus:ring-amber-500"
+        className="border border-gray-300 rounded-md px-4 py-2 bg-white focus:outline-none focus:border-amber-500 focus:ring-amber-500"
       >
         <option value="" disabled>
           Select option

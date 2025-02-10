@@ -1,10 +1,8 @@
 import { useEffect } from 'react'
-import splitArray from '../utils/splitArrays'
-import { type ProgramItem } from '../types/ProgramTypes'
 import { useAppContext } from './useAppContext'
 
 const useAsyncRequest = (url: string) => {
-  const { itemsPerPage, setData, setError, setLoading } = useAppContext()
+  const { setFullData, setError, setLoading } = useAppContext()
 
   useEffect(() => {
     const callData = async () => {
@@ -26,8 +24,7 @@ const useAsyncRequest = (url: string) => {
         }
 
         const data = await response.json()
-        const dividedData = splitArray(data.record as ProgramItem[], itemsPerPage)
-        setData(dividedData)
+        setFullData(data.record)
       } catch (error: unknown) {
         console.error('Error fetching data:', error)
         if (error instanceof Error) {
@@ -41,7 +38,7 @@ const useAsyncRequest = (url: string) => {
     }
 
     callData()
-  }, [itemsPerPage, setData, setError, setLoading, url])
+  }, [setFullData, setError, setLoading, url])
 }
 
 export default useAsyncRequest
