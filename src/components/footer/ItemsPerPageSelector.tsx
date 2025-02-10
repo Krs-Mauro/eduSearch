@@ -18,7 +18,7 @@ const ItemsPerPageSelector = () => {
         id="sort-select"
         value={itemsPerPage}
         onChange={handleSelect}
-        className="border w-20 border-gray-300 rounded-md px-4 py-2 bg-white focus:outline-none focus:border-amber-500  focus:ring-amber-500"
+        className="border w-22 border-gray-300 rounded-md px-4 py-2 bg-white focus:outline-none focus:border-amber-500  focus:ring-amber-500"
       >
         {itemsOptions.map((option) => (
           <option key={option} value={option}>

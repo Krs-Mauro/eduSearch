@@ -4,7 +4,7 @@ import SearchBar from './SearchBar'
 
 const UpperHeader = () => {
   return (
-    <div className="flex w-full justify-between items-center px-16">
+    <div className="flex w-full justify-between items-center px-60">
       <div className="flex items-center">
         <MenuIcon />
         <h1 className="text-2xl font-bold text-amber-500 ml-3">Affordable Online Degrees</h1>

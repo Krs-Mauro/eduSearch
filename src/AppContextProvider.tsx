@@ -63,7 +63,7 @@ export const AppContextProvider = ({ children }: { children: React.ReactNode }) 
           break
       }
     }
-
+    setPage(0)
     return splitArray(result, itemsPerPage)
   }, [fullData, search, filter, sort, itemsPerPage])
 

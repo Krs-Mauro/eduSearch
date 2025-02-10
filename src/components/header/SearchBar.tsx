@@ -3,12 +3,11 @@ import SearchIcon from '../../assets/SearchIcon'
 import { useAppContext } from '../../hooks/useAppContext'
 
 const SearchBar = () => {
-  const { setSearch, setPage } = useAppContext()
+  const { setSearch } = useAppContext()
   const [inputValue, setInputValue] = useState('')
 
   const handleSearch = () => {
     setSearch(inputValue)
-    setPage(1) // Reset to first page when searching
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {

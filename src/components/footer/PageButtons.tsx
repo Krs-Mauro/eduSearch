@@ -1,25 +1,31 @@
 import { useState, useEffect } from 'react'
 import { useAppContext } from '../../hooks/useAppContext'
+import { ProgramItem } from '../../types/ProgramTypes'
 
 const PageButtons = () => {
   const { page, setPage, dataWithId } = useAppContext()
   const [isPrevActive, setIsPrevActive] = useState(true)
   const [isNextActive, setIsNextActive] = useState(true)
 
-  const buttonArray = dataWithId.length
-    ? dataWithId.length <= 5
-      ? Array.from({ length: dataWithId.length - 1 }, (_, index) => ({ content: index + 1 }))
-      : [
-          { content: 1 },
-          { content: 2 },
-          { content: 3 },
-          { content: '...' },
-          { content: dataWithId.length - 1 },
-        ]
-    : []
+  const shortList = [
+    { content: 1 },
+    { content: 2 },
+    { content: 3 },
+    { content: '...' },
+    { content: dataWithId.length },
+  ]
+
+  const getButtonArray = (list: ProgramItem[][]) => {
+    if (!list.length) return []
+    if (list.length > 5) return shortList
+
+    return Array.from({ length: dataWithId.length }, (_, index) => ({ content: index + 1 }))
+  }
+
+  const buttonArray = getButtonArray(dataWithId)
 
   const handlePrevious = () => {
-    if (page === 1) {
+    if (page === 0) {
       setIsPrevActive(false)
       return
     }
@@ -39,7 +45,7 @@ const PageButtons = () => {
     } else {
       setIsNextActive(true)
     }
-    if (page === 1) {
+    if (page === 0) {
       setIsPrevActive(false)
     } else {
       setIsPrevActive(true)
@@ -56,7 +62,7 @@ const PageButtons = () => {
         PREVIOUS
       </button>
 
-      {buttonArray.map((item) =>
+      {buttonArray.map((item, index) =>
         item.content === '...' ? (
           <p key="ellipsis" className="inline-block w-7 h-6 mr-2 text-center">
             ...
@@ -66,7 +72,7 @@ const PageButtons = () => {
             className="bg-gray-100 border-2 border-gray-400 w-7 h-6 mr-2"
             key={item.content}
             onClick={() => {
-              if (typeof item.content === 'number') setPage(item.content)
+              if (typeof item.content === 'number') setPage(index)
             }}
           >
             {item.content}

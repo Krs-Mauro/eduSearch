@@ -3,7 +3,7 @@ import PageButtons from './PageButtons'
 
 const Pagination = () => {
   return (
-    <div className="flex w-full justify-end items-center px-16 mb-4">
+    <div className="flex w-full justify-end items-center px-60 mb-4">
       <ItemsPerPageSelector />
       <PageButtons />
     </div>
